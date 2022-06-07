@@ -1,8 +1,8 @@
 from datetime import datetime
-import output
+import export
 
 def log_to_file(entry):
-    b = output.style()
+    b = export.style()
     if b == 1:
         with open('phone.csw', 'a') as file:
             file.write(f'{datetime.today()};{entry[0]};{entry[1]};{entry[2]};{entry[3]}\n')

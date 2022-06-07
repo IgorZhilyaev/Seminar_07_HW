@@ -2,23 +2,30 @@ import record
 import search
 import user_interface
 import logger
-import output
+import export
+import import_data
 
 def run():
-    temp = user_interface.choise()
-    if temp == 1:
+    operation = user_interface.choise_operatoin()
+    format = user_interface.choise_format()
+    if operation == 1:
         print('Выбрана операция внесения нового контакта.')
 
-        entry = record.record()
-        logger.log_to_file(entry)
+        #entry = record.record()
+        #logger.log_to_file(entry)
 
-    if temp == 2:
-        print('Выбрана операция поиска контакта.')
+    if operation == 2:
+        print('Выбрана операция вывода справочника.')
 
-        entry = search.search()
-        logger.reading_file(entry)
+        #entry = search.search()
+        #logger.reading_file(entry)
+    
+    if format == 1:
+        print('Формат: строка - разделитель.')
 
-    if temp == 3:
-        print('Выбрана операция вывода всех контактов.')
+        import_data.input_format1(record.record())
 
-        logger.read_oll_file()
+    if format == 2:
+        print('Формат: ";" - разделитель.')
+
+        import_data.input_format2(record.record())
